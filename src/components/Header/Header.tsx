@@ -1,4 +1,4 @@
-import { HeaderDefault, InnerHeader, Search, Title, ContainerSearch, Nav, ShoppingCart, AccountCircle } from "./Header.styles"
+import { HeaderDefault, InnerHeader, Search, Title, ContainerSearch, Nav, ShoppingCart, AccountCircle, SearchIco } from "./Header.styles"
 
 
 export default function Header(){
@@ -7,11 +7,11 @@ export default function Header(){
             <InnerHeader>
                 <Title>SIGMA</Title>
                 <Nav>
-
-                    <ShoppingCart/>                    
                     <ContainerSearch>
-                        <Search placeholder="Busque aqui"></Search>
+                        <SearchIco/>
+                        <Search placeholder="Procurando por algo específico?"></Search>
                     </ContainerSearch>
+                    <ShoppingCart/>                  
                     <AccountCircle/>
                 </Nav>
             </InnerHeader>
