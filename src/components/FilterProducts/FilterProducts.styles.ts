@@ -9,6 +9,7 @@ export const Filters = styled.ul`
     gap: 1.5rem;
     margin-top: 2rem;
     padding-left: 5rem;
+    position: relative;
 `
 
 export const Filter = styled.li<FilterItemProps>`
