@@ -10,6 +10,7 @@ export const ContainerCard = styled.div`
     background: rgba(255, 255, 255, 0.4);
     border-radius:8px;
     width: 256px;
+    max-height: 420px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 `
 
@@ -22,10 +23,12 @@ export const Img = styled.img`
 
 export const Name = styled.h3`
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 150%;
     color: black;
     font-family: 'Fira Sans';
+    padding-left: 2px;
+    max-width: 200px;
 `
 export const LineBreak = styled.div`
     width: 228px;

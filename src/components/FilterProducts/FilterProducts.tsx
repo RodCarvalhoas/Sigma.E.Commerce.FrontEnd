@@ -1,13 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Filter, Filters } from "./FilterProducts.styles";
 import { FilterType } from "../../types/Filter";
 
-export default function FilterProducts() {
-  const [selectedFilter, setSelectedFilter] = useState<FilterType | null>(FilterType.ALL_PRODUCTS);
+interface Props{
+  onFilterChange: (newFilter: FilterType) => void;
+}
+
+export default function FilterProducts({onFilterChange}: Props) {
+  const [selectedFilter, setSelectedFilter] = useState<FilterType | null>();
+  
+  useEffect(() => {
+    if(selectedFilter === 0 || selectedFilter){
+      console.log(selectedFilter)
+      onFilterChange(selectedFilter)
+    }
+  }, [selectedFilter])
 
   const handleClick = (filterType: FilterType) => {
     if (filterType === selectedFilter) {
-      setSelectedFilter(null);
+      setSelectedFilter(FilterType.ALL_PRODUCTS);
     } else {
       setSelectedFilter(filterType);
     }

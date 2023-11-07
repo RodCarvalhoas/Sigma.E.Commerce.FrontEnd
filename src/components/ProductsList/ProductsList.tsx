@@ -1,29 +1,59 @@
-import { useState } from "react"
-import products from "../../data/Products.json";
+import { useEffect, useState } from "react"
 import ProductCard from '../../components/ProductCard/ProductCard';
 import styled from "styled-components";
+import axios from "axios";
+import { Product } from "../../types/Product";
+import { FilterType } from "../../types/Filter";
+import { Filter } from "../FilterProducts/FilterProducts.styles";
 
 const Container = styled.div`
-    display: flex;
-    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 256px);
+    grid-gap: 32px;
+    max-width: 100%;
     padding-top: 4rem;
     padding-left: 5rem;
 `
 
-export default function ProductsList(){
-    const [listProducts, setListProducts] = useState(products);
+interface Props{
+    FilterStateContext: FilterType
+}
 
-    return(
+export default function ProductsList({FilterStateContext}: Props) {
+    const [ProductsList, setProductsList] = useState<Product[]>([]);
+
+    useEffect(() => {
+        if(FilterStateContext === 1){
+            axios.get("http://localhost:8080/product/category?categoryName=PERIFERICOS")
+            .then(resposta => {
+                setProductsList(resposta.data);
+            }).catch(err => {
+                console.log(err);})
+        }else if(FilterStateContext === 2){
+            axios.get("http://localhost:8080/product/category?categoryName=COMPUTADORES")
+            .then(resposta => {
+                setProductsList(resposta.data)
+            }).catch(err => {console.log(err)});
+        }else{
+            axios.get("http://localhost:8080/product")
+            .then(resposta => {
+                setProductsList(resposta.data);
+            }).catch(err => {
+                console.log("Erro na requisição:", err);});
+        }
+    }, [FilterStateContext]);
+
+    return (
         <Container>
-            {listProducts.map((prod) => (
+            {ProductsList.map((prod) => (
                 <ProductCard
-                key={prod.id}
-                id={prod.id}
-                imgUrl={prod.img}
-                name={prod.name}
-                value={prod.value}
+                    key={prod.name}
+                    imgUrl={prod.img}
+                    name={prod.name}
+                    price={prod.price}
                 />
             ))}
         </Container>
-    )
+    );
+    
 }
