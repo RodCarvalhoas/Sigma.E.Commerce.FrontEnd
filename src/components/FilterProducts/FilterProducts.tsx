@@ -7,7 +7,7 @@ interface Props{
 }
 
 export default function FilterProducts({onFilterChange}: Props) {
-  const [selectedFilter, setSelectedFilter] = useState<FilterType | null>();
+  const [selectedFilter, setSelectedFilter] = useState<FilterType | null>(FilterType.ALL_PRODUCTS);
   
   useEffect(() => {
     if(selectedFilter === 0 || selectedFilter){

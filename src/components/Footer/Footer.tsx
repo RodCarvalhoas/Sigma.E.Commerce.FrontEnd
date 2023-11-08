@@ -1,6 +1,5 @@
 import { Container, FacebookImg, FooterDefault, InstagramImg, LinkedInImg, TwitterImg, Text, Logos } from "./Footer.styles"
 
-
 export default function Footer(){
     return(
         <Container>

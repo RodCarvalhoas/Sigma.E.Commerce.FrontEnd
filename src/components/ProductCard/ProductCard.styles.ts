@@ -12,6 +12,10 @@ export const ContainerCard = styled.div`
     width: 256px;
     max-height: 420px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    &:hover{
+        cursor: pointer;
+        opacity: 0.7;
+    }
 `
 
 export const Img = styled.img`

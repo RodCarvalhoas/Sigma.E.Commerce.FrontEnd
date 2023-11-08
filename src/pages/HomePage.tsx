@@ -1,32 +1,23 @@
-import React, { useState } from 'react';
-import FilterProducts from '../components/FilterProducts/FilterProducts';
-import Header from '../components/Header/Header';
-import ProductsList from '../components/ProductsList/ProductsList';
-import { FilterType } from '../types/Filter';
-import styled from 'styled-components';
-import Footer from '../components/Footer/Footer';
+import { useState } from "react";
+import FilterProducts from "../components/FilterProducts/FilterProducts";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+import ProductsList from "../components/ProductsList/ProductsList";
+import { FilterType } from "../types/Filter";
 
-const Container = styled.div`
-  min-height: 100vh;
-  min-width: 100vh;
-  background-color: #e9ecef;
-`;
+export default function HomePage(){
+    const [filterStateContext, setFilterStateContext] = useState<FilterType>(FilterType.ALL_PRODUCTS);
 
-function App() {
-  const [filterStateContext, setFilterStateContext] = useState<FilterType>(FilterType.ALL_PRODUCTS);
-
-  const handleFilterChange = (newFilter: FilterType) => {
-    setFilterStateContext(newFilter);
-  };
-
-  return (
-    <Container>
-      <Header />
-      <FilterProducts onFilterChange={handleFilterChange} />
-      <ProductsList FilterStateContext={filterStateContext} />
-      <Footer/>
-    </Container>
-  );
+    const handleFilterChange = (newFilter: FilterType) => {
+      setFilterStateContext(newFilter);
+    };
+    
+    return(
+        <>
+            <Header />
+            <FilterProducts onFilterChange={handleFilterChange} />
+            <ProductsList FilterStateContext={filterStateContext} />
+            <Footer/>
+        </>
+    )
 }
-
-export default App;

@@ -4,7 +4,6 @@ import styled from "styled-components";
 import axios from "axios";
 import { Product } from "../../types/Product";
 import { FilterType } from "../../types/Filter";
-import { Filter } from "../FilterProducts/FilterProducts.styles";
 
 const Container = styled.div`
     display: grid;
