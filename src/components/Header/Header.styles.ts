@@ -34,6 +34,9 @@ export const Title = styled.h2`
     font-size: 30px;
     color: white;
     padding-left: 5rem;
+    &:hover{
+        cursor: pointer;
+    }
 `;
 
 export const ContainerSearch = styled.div`

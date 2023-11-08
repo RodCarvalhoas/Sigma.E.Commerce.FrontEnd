@@ -12,14 +12,13 @@ export const FooterDefault = styled.footer`
     background-color: #6734ff;
     min-width: 100%;
     height: 75px;
-    position: absolute;
     bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding-bottom: 10px;
-
+    margin-top: 2rem;
 `
 
 export const InstagramImg = styled(InstagramIcon)`

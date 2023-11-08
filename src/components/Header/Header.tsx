@@ -1,13 +1,18 @@
 import { useState } from "react"
 import { HeaderDefault, InnerHeader, Search, Title, ContainerSearch, Nav, ShoppingCart, AccountCircle, SearchIco, MyProfile, Option, ContainerProfile, CloseX } from "./Header.styles"
+import { useNavigate } from "react-router";
 
 export default function Header(){
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate()
 
+    const navegateToHome = () => {
+        navigate("/")
+    }
     return(
         <HeaderDefault>
             <InnerHeader>
-                <Title>SIGMA</Title>
+                <Title onClick={navegateToHome}>SIGMA</Title>
                 <Nav>
                     <ContainerSearch>
                         <SearchIco/>
