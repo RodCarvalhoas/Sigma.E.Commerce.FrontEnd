@@ -4,6 +4,7 @@ import Header from '../components/Header/Header';
 import ProductsList from '../components/ProductsList/ProductsList';
 import { FilterType } from '../types/Filter';
 import styled from 'styled-components';
+import Footer from '../components/Footer/Footer';
 
 const Container = styled.div`
   min-height: 100vh;
@@ -23,6 +24,7 @@ function App() {
       <Header />
       <FilterProducts onFilterChange={handleFilterChange} />
       <ProductsList FilterStateContext={filterStateContext} />
+      <Footer/>
     </Container>
   );
 }
