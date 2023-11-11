@@ -75,7 +75,7 @@ export const AccountCircle = styled(AccountCircleIcon)`
 export const MyProfile = styled.ul`
     background-color: white;
     width: 100px;
-    height: 60vh;
+    height: 70vh;
     position: absolute;
     right: 0;
     top: 0;
@@ -86,6 +86,7 @@ export const MyProfile = styled.ul`
 
 export const Option = styled.li`
     background: transparent;
+    position: relative;
     cursor: pointer;
     text-decoration: none;
     text-align: center;
@@ -97,7 +98,7 @@ export const Option = styled.li`
     color: black;
     padding-top: 20px;
     &:hover{
-        transition: 0.5s;
+        transition: 0.5s;   
         opacity: 0.7;
         font-size: 16px;
     }

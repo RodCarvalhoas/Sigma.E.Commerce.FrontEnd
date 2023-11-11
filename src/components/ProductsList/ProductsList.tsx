@@ -24,18 +24,18 @@ export default function ProductsList({FilterStateContext}: Props) {
 
     useEffect(() => {
         if(FilterStateContext === 1){
-            axios.get("http://localhost:8080/product/category?categoryName=PERIFERICOS")
+            axios.get("http://localhost:8080/product?categoryName=PERIFERICOS")
             .then(resposta => {
                 setProductsList(resposta.data);
             }).catch(err => {
                 console.log(err);})
         }else if(FilterStateContext === 2){
-            axios.get("http://localhost:8080/product/category?categoryName=COMPUTADORES")
+            axios.get("http://localhost:8080/product?categoryName=COMPUTADORES")
             .then(resposta => {
                 setProductsList(resposta.data)
             }).catch(err => {console.log(err)});
         }else{
-            axios.get("http://localhost:8080/product")
+            axios.get("http://localhost:8080/product/all")
             .then(resposta => {
                 setProductsList(resposta.data);
             }).catch(err => {

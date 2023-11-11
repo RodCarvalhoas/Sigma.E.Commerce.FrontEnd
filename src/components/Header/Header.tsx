@@ -24,9 +24,16 @@ export default function Header(){
                         {isOpen && 
                         <MyProfile>
                             <CloseX onClick={() => setIsOpen(!isOpen)}/>
-                            <Option>Meu Perfil</Option>
-                            <Option>Meu carrinho</Option>
+                            <Option>Minha Conta</Option>
+                            <Option>Carrinho</Option>
                             <Option>Favoritos</Option>
+                            <Option>Compras</Option>
+                            <Option>Estoque</Option>
+                            <Option>Vendas</Option>
+                            <Option>Cadastro</Option>
+                            <Option>Oferta do dia</Option>
+                            <Option>Monte seu PC</Option>
+                            <Option>Baixe o App</Option>
                             <Option>SAC</Option>
                         </MyProfile>}
                     </ContainerProfile>                 

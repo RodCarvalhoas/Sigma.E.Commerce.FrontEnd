@@ -8,7 +8,6 @@ interface Props{
 }
 
 export const Container = styled.div`
-    position: relative;
     flex: 1 0 auto;
 `
 
@@ -19,7 +18,8 @@ export const CardProduct = styled.div`
     column-gap: 1.5rem;
     justify-content: center;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 10rem;
+    margin-bottom: 5rem;
 `
 
 export const CardImg = styled.div<Props>`
@@ -49,8 +49,8 @@ export const ReturnToHome = styled.p`
     font-weight: 500;
     width: 0;
     font-size: 30px;
-    position: relative;
-    margin-left: 20.5rem;
+    position: absolute;
+    left: 16.5rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
     color: #6734ff;
@@ -59,7 +59,6 @@ export const ReturnToHome = styled.p`
         opacity: 0.7;
     }
 `
-
 export const DescriptionBar = styled.div`
     display: flex;
     column-gap: 2rem;
