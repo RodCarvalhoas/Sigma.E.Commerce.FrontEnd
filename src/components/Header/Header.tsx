@@ -7,7 +7,7 @@ export default function Header(){
     const navigate = useNavigate()
 
     const navegateToHome = () => {
-        navigate("/")
+        navigate("/")   
     }
     return(
         <HeaderDefault>

@@ -5,3 +5,7 @@ export interface Product{
     img: string;
     categoryName: string;
 }
+
+export interface ProductResponse{
+    product: Product[];
+}
