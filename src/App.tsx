@@ -2,10 +2,12 @@ import styled from 'styled-components';
 import HomePage from './pages/HomePage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductPage from './pages/ProductPage';
+import { ProtectedRoute } from './helpers/ProtectedRoutesHelper';
+import LoginPage from './pages/LoginPage/LoginPage';
 
 const Container = styled.div`
   min-height: 100%;
-  width: 100%;
+  min-width: 100%;
   background-color: #e9ecef;
 `;
 
@@ -16,6 +18,11 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/product/:name" element={<ProductPage/>}/>
+            <Route path="/login" element={<LoginPage/>}/>
+
+            <Route element={<ProtectedRoute/>}>
+
+            </Route>
           </Routes>
         </Router>
     </Container>
