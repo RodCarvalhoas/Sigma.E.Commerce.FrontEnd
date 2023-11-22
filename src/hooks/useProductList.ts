@@ -1,9 +1,9 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Product } from "../types/Product";
 
-const fetchDataAll = async (): Promise<Product[]> => {
+const fetchDataAll = async (): Promise<Product[]> => { 
+
   const response = await axios.request<Product[]>({
     method: "GET",
     url: process.env.REACT_APP_BASEAPI_URL + "/product/all"

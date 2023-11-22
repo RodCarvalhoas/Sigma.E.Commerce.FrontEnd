@@ -28,9 +28,6 @@ export default function Header(){
                             <Option>Carrinho</Option>
                             <Option>Favoritos</Option>
                             <Option>Compras</Option>
-                            <Option>Estoque</Option>
-                            <Option>Vendas</Option>
-                            <Option>Cadastro</Option>
                             <Option>Oferta do dia</Option>
                             <Option>Monte seu PC</Option>
                             <Option>Baixe o App</Option>

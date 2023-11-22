@@ -2,6 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import LoginRequest from "../types/LoginRequest";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../class/axiosInstance";
 
 const unexpectedErrorText = "Erro inesperado, tente novamente";
 
@@ -32,6 +33,7 @@ const mutation = useMutation({
     onSuccess: (response) => {
         try{
             localStorage.setItem("token", response.token)
+            axiosInstance.token = localStorage.getItem("token");
             navigate("/")
         }catch(err){
             throw new Error(unexpectedErrorText).message;

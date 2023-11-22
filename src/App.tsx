@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductPage from './pages/ProductPage';
 import { ProtectedRoute } from './helpers/ProtectedRoutesHelper';
 import LoginPage from './pages/LoginPage/LoginPage';
+import AdminPainel from './pages/AdminPainel/AdminPainel';
 
 const Container = styled.div`
   min-height: 100%;
@@ -21,7 +22,7 @@ function App() {
             <Route path="/login" element={<LoginPage/>}/>
 
             <Route element={<ProtectedRoute/>}>
-
+              <Route path="admin" element={<AdminPainel/>}/>
             </Route>
           </Routes>
         </Router>
