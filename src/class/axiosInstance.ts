@@ -34,6 +34,22 @@ class axiosInstance{
         }
     }
 
+    post = async (url: string, data: {}) => {
+        try {
+            const response = await axios.request({
+                headers: {
+                    Authorization: `Bearer ${this.token}`
+                },
+                method: "POST",
+                data: data,
+                url: url
+            });
+            return response.data;
+        } catch (error) {
+            
+            throw new Error('Erro ao fazer requisição POST');
+        }
+    }
 }
 
 export default new axiosInstance();

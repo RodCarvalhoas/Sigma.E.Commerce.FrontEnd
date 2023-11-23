@@ -2,9 +2,10 @@ import React from "react"
 import styled from "styled-components"
 
 interface Props{
-    children: React.ReactNode;
-    type: 'button' | 'submit';
+    children?: React.ReactNode;
+    type?: 'button' | 'submit';
     onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+    className?: string;
 }
 
 const ButtonComponent = styled.button`
@@ -24,10 +25,10 @@ const ButtonComponent = styled.button`
     }
 `
 
-export default function Button({children, type, onClick}: Props){
+export default function Button({children, type, onClick, className}: Props){
     return(
         <>
-            <ButtonComponent type={type} onClick={onClick}>
+            <ButtonComponent type={type} onClick={onClick} className={className}>
                 {children}
             </ButtonComponent>
         </>

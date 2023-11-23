@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FooterDefault } from "../../components/Footer/Footer.styles";
 
 interface Props{
     value: string;
@@ -32,7 +33,7 @@ export const Tittle = styled.h2`
 
 export const OptionCard = styled.div<Props>`
     background-color: ${
-    (props) => props.value === 'Estoque' ? 'green' : props.value === 'Vendas' ? 'yellow' : 'grey'};
+    (props) => props.value === 'Estoque' ? '#c5d9c5' : props.value === 'Vendas' ? 'yellow' : 'grey'};
     border-radius: 20px;
     margin-top: 6rem;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
@@ -57,3 +58,7 @@ export const Options = styled.div`
     display: flex;
     justify-content: space-around;
 `;
+
+export const FooterAdmin = styled(FooterDefault)`
+    background-color: black;
+`

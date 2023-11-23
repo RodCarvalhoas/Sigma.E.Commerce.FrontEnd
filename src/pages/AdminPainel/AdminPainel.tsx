@@ -1,8 +1,15 @@
-import { FooterDefault } from "../../components/Footer/Footer.styles";
+import { useNavigate } from "react-router-dom";
 import HeaderAdmin from "../../components/HeaderAdmin/HeaderAdmin";
-import { Container, InnerContainer, OptionCard, Options, Tittle, TittleOption } from "./AdminPainel.styles";
+import { Container, InnerContainer, OptionCard, Options, Tittle, TittleOption, FooterAdmin } from "./AdminPainel.styles";
 
 export default function AdminPainel(){
+
+    const navigate = useNavigate();
+
+    const handleClick = (url: string) => {
+        navigate(url);
+    }
+
     return(
         <Container>
             <HeaderAdmin/>
@@ -10,18 +17,18 @@ export default function AdminPainel(){
                 <Tittle>PAINEL DO ADMINISTRADOR</Tittle>
 
                 <Options>
-                    <OptionCard value="Estoque">
+                    <OptionCard value="Estoque" onClick={() => handleClick("stock")}>
                         <TittleOption>ESTOQUE</TittleOption>
                     </OptionCard>
-                    <OptionCard value="Vendas">
+                    <OptionCard value="Vendas" onClick={() => handleClick("sales")}>
                         <TittleOption>VENDAS</TittleOption>
                     </OptionCard>
-                    <OptionCard value="Cadastro">
+                    <OptionCard value="Cadastro" onClick={() => handleClick("register")}>
                         <TittleOption>CADASTRO</TittleOption>
                     </OptionCard>
                 </Options>
             </InnerContainer>
-            <FooterDefault/>
+            <FooterAdmin/>
         </Container>
     )
 }

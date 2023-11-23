@@ -7,7 +7,7 @@ interface Props{
     type: React.HTMLInputTypeAttribute;
     iconButton?: React.ReactNode;
     inputId?: string;
-    value?: string;
+    value?: string | number | undefined;
     errorText?: string;
     disable?: boolean;
     onChange?: ChangeEventHandler<HTMLInputElement>;

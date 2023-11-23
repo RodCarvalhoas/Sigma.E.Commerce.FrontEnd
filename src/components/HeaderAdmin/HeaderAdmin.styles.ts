@@ -5,7 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 export const Header = styled.header`
     width: 100%;
     height: 90px;
-    background-color: #6734ff;
+    background-color: black;
     position: relative;
 `;
 

@@ -13,7 +13,7 @@ export default function HeaderAdmin(){
     return(
         <Header>
             <InnerHeader>
-                <Title onClick={navegateToHomeAdmin}>SIGMA</Title>
+                <Title onClick={navegateToHomeAdmin}>SIGMA admin</Title>
                 <ContainerProfile>
                         {isOpen === false && <AccountCircle onClick={() => setIsOpen(!isOpen)}/>}
                         {isOpen && 
