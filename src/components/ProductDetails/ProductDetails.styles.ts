@@ -108,9 +108,11 @@ export const BuyButton = styled.button`
 
 export const FavoriteIcon = styled(GradeIcon)`
     color: yellow;
+    cursor: pointer;
 `
 export const FavoriteIconOutlined = styled(GradeOutlinedIcon)`
     color: black;
+    cursor: pointer;
 `
 
 export const ShoppingCart = styled(ShoppingCartIcon)`

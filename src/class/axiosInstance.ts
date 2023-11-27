@@ -50,6 +50,21 @@ class axiosInstance{
             throw new Error('Erro ao fazer requisição POST');
         }
     }
+    delete = async (url: string) => {
+        try {
+            const response = await axios.request({
+                headers: {
+                    Authorization: `Bearer ${this.token}`
+                },
+                method: "DELETE",
+                url: url
+            });
+            return response.data;
+        } catch (error) {
+            
+            throw new Error('Erro ao fazer requisição DELETE');
+        }
+    }
 }
 
 export default new axiosInstance();
