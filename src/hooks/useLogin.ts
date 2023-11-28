@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation } from "react-query";
 import axios from "axios";
 import LoginRequest from "../types/LoginRequest";
 import { useNavigate } from "react-router-dom";
@@ -26,7 +26,6 @@ const postLogin = async (data: LoginRequest) => {
 }
 
 export const useLogin = () => {
-
 const navigate = useNavigate()
 const mutation = useMutation({
     mutationFn: postLogin,
@@ -34,6 +33,7 @@ const mutation = useMutation({
         try{
             localStorage.setItem("token", response.token)
             axiosInstance.token = localStorage.getItem("token");
+            
             navigate("/")
         }catch(err){
             throw new Error(unexpectedErrorText).message;

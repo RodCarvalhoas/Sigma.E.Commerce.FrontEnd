@@ -26,12 +26,13 @@ export default function Header(){
                             <CloseX onClick={() => setIsOpen(!isOpen)}/>
                             <Option>Minha Conta</Option>
                             <Option>Carrinho</Option>
-                            <Option>Favoritos</Option>
+                            <Option onClick={() => navigate("/favorites")}>Favoritos</Option>
                             <Option>Compras</Option>
                             <Option>Oferta do dia</Option>
                             <Option>Monte seu PC</Option>
                             <Option>Baixe o App</Option>
                             <Option>SAC</Option>
+                            {localStorage.getItem("role") === "ADMIN" && <Option onClick={() => navigate("/admin")}>ADMIN</Option>}
                         </MyProfile>}
                     </ContainerProfile>                 
                 </Nav>

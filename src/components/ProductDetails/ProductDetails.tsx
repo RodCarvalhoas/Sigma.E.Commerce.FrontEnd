@@ -2,8 +2,9 @@ import { BuyButton, CardImg, CardProduct, Container, DescriptionBar, Description
 import { useNavigate } from "react-router";
 import { useProductDetails } from "../../hooks/useProductDetails";
 import { useFavoriteAdd } from "../../hooks/useFavoriteAdd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFavoriteRemove } from "../../hooks/useFavoriteRemove";
+import { useAllFavorites } from "../../hooks/useFavoriteList";
 
 export default function ProductDetails(){
     const { data, isLoading } = useProductDetails();
@@ -12,6 +13,7 @@ export default function ProductDetails(){
     const [ productIsFavorite, setProductIsFavorite ] = useState(false);
     const { mutate: FavoriteAdd } = useFavoriteAdd();
     const { mutate: FavoriteRemove } = useFavoriteRemove();
+    const { data: favorites } = useAllFavorites();
 
     const handleClick = () => {
         if(data){
@@ -22,8 +24,12 @@ export default function ProductDetails(){
                 img: data.img,
                 quantity: data.quantity
             }
-            FavoriteAdd(ProductRequest);
-            setProductIsFavorite(!productIsFavorite);
+            if(localStorage.getItem("token")){
+                FavoriteAdd(ProductRequest);
+                setProductIsFavorite(!productIsFavorite);
+            }else{
+                navigate("/login");
+            }
         }
     }
 
@@ -33,6 +39,17 @@ export default function ProductDetails(){
         }
         setProductIsFavorite(!productIsFavorite);
     }
+
+    useEffect(() => {
+        if (favorites) {
+            favorites.forEach(fav => {
+                if (fav?.product?.id === data?.id) {
+                    setProductIsFavorite(true);
+                }
+            });
+        }
+    }, [data, favorites]);
+    
 
     return(
         <Container>

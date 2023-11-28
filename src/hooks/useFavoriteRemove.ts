@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "react-query";
 import axiosInstance from "../class/axiosInstance";
 
 const deleteFavorite = async (favoriteId: string) => {
@@ -6,7 +6,13 @@ const deleteFavorite = async (favoriteId: string) => {
 }
 
 export function useFavoriteRemove(){
+    const queryClient = useQueryClient();
     return useMutation({
-        mutationFn: deleteFavorite
+        mutationFn: deleteFavorite,
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['all-favorites']})
+            queryClient.invalidateQueries({ queryKey: ['product-details']})
+        }
+        
     })
 }

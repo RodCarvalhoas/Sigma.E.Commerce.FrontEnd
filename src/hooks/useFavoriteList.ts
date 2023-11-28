@@ -1,12 +1,16 @@
-import { useMutation } from "@tanstack/react-query";
+import { useQuery } from "react-query";
 import axiosInstance from "../class/axiosInstance";
+import { Favorite } from "../types/Favorite";
 
-const getAllFavorites = async (userId: string) => {
-    const response = await axiosInstance.get(`${process.env.REACT_APP_BASEAPI_URL}/favorite?userId=${userId}`)
+const getAllFavorites = async (): Promise<Favorite[]> => {
+    return await axiosInstance.get<Favorite[]>(`${process.env.REACT_APP_BASEAPI_URL}/favorite`)
 }
 
 export function useAllFavorites(){
-    return useMutation({
-        mutationFn: getAllFavorites
+    return useQuery({
+        queryKey: ['all-favorites'],
+        queryFn: getAllFavorites,
+        cacheTime: 0,
+        refetchOnWindowFocus: false
     })
 }

@@ -1,4 +1,4 @@
-import { Axios } from "axios";
+import { Axios, AxiosResponse } from "axios";
 import axios from "axios";
 
 class axiosInstance{
@@ -18,22 +18,20 @@ class axiosInstance{
         this.token = "";
     }
 
-    get = async (url: string) => {
+    get = async <T>(url: string): Promise<T> => {
         try {
-            const response = await axios.request({
-                headers: {
-                    Authorization: `Bearer ${this.token}`
-                },
-                method: "GET",
-                url: url
-            });
-            return response.data;
+          const response: AxiosResponse<T> = await axios.request({
+            headers: {
+              Authorization: `Bearer ${this.token}`
+            },
+            method: 'GET',
+            url: url
+          });
+          return response.data;
         } catch (error) {
-            
-            throw new Error('Erro ao fazer requisição GET');
+          throw new Error('Erro ao fazer requisição GET');
         }
-    }
-
+      }
     post = async (url: string, data: {}) => {
         try {
             const response = await axios.request({

@@ -7,6 +7,8 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import AdminPainel from './pages/AdminPainel/AdminPainel';
 import StockPage from './pages/StockPage/StockPage';
 import ProductAddPage from './pages/Product/ProductAddPage/ProductAddPage';
+import FavoritePage from './pages/FavoritePage/FavoritePage';
+import { ProtectedRouteAdmin } from './helpers/ProtectedRouteAdmin';
 
 const Container = styled.div`
   min-height: 100%;
@@ -24,10 +26,13 @@ function App() {
             <Route path="/login" element={<LoginPage/>}/>
 
             <Route element={<ProtectedRoute/>}>
-              <Route path="admin" element={<AdminPainel/>}/>
-              <Route path="admin/stock" element={<StockPage/>}/>
-              <Route path="admin/stock/productAdd" element={<ProductAddPage/>}/>
+              <Route path="/favorites" element={<FavoritePage/>}/>
             </Route>
+            <Route element={<ProtectedRouteAdmin/>}>
+                <Route path="admin" element={<AdminPainel/>}/>
+                <Route path="admin/stock" element={<StockPage/>}/>
+                <Route path="admin/stock/productAdd" element={<ProductAddPage/>}/>
+              </Route>
           </Routes>
         </Router>
     </Container>

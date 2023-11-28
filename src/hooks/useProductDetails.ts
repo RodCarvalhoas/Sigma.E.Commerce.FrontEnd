@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from 'react-query';
 import axios from "axios";
 import { Product } from "../types/Product";
 
@@ -10,7 +10,9 @@ import { Product } from "../types/Product";
 export function useProductDetails(){
     const query = useQuery({
         queryKey: ["product-details"],
-        queryFn: fetchProductDetails
+        queryFn: fetchProductDetails,
+        cacheTime: 0,
+        refetchOnWindowFocus: false
     })
     return query;
 }

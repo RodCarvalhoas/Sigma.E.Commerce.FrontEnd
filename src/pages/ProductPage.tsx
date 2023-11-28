@@ -9,7 +9,6 @@ const Container = styled.div`
     flex-direction: column;
 `
 
-
 export default function ProductPage(){
     return(
         <Container>

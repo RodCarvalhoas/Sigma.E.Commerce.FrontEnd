@@ -12,7 +12,7 @@ export default function LoginPage(){
     const validationSchema = yup.object({
         email: yup
             .string()
-            .required("Dugute seu email"),
+            .required("Digite seu email"),
         password: yup
             .string()
             .required("Digite sua senha")
